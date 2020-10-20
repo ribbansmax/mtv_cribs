@@ -143,5 +143,11 @@ class BuildingTest < Minitest::Test
     expected = {"Spencer" => 11988}
 
     assert_equal expected, building.annual_breakdown
+
+    renter2 = Renter.new("Jessie")
+    unit1.add_renter(renter2)
+    expected = {"Jessie" => 14400, "Spencer" => 11988}
+
+    assert_equal expected, building.annual_breakdown
   end
 end
