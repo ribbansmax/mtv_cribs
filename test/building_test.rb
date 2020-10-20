@@ -36,5 +36,10 @@ class BuildingTest < Minitest::Test
     building.add_unit(unit2)
 
     assert_equal [], building.renters
+
+    renter1 = Renter.new("Aurora")
+    unit1.add_renter(renter1)
+
+    assert_equal ["Aurora"], building.renters
   end 
 end
