@@ -27,4 +27,14 @@ class Building
    end
    average_rent / @units.length.to_f
   end
+
+  def rented_units
+    units = []
+    @units.each do |unit|
+      if unit.renter
+        units << unit
+      end
+    end
+    units
+  end
 end 
