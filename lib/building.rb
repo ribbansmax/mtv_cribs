@@ -19,13 +19,18 @@ class Building
     renters
   end
 
-  # Unclear from interaction pattern whether this is checking average rent of filled units, of average rent cost. In this I chose to do average rent of all units.
-  def average_rent
+  # Unclear from interaction pattern whether this is checking average rent of filled units, of average rent cost. In this I chose to do average rent of all units by default. Use average_rent_of_rented_units for what it sounds like.
+  def average_rent(units = @units)
    average_rent = 0
-   @units.each do |unit|
+   units.each do |unit|
     average_rent += unit.monthly_rent.to_f
    end
-   average_rent / @units.length.to_f
+   average_rent / units.length.to_f
+  end
+
+  def average_rent_of_rented_units
+    rented_units = rented_units()
+    average_rent(rented_units)
   end
 
   def rented_units
