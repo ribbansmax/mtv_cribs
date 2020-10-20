@@ -13,7 +13,7 @@ class Building
     renters = []
     @units.each do |unit|
       if unit.renter
-        renters << unit.renter
+        renters << unit.renter.name
       end
     end
     renters
