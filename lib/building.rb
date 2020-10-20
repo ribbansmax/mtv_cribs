@@ -64,4 +64,13 @@ class Building
     end
     units
   end
+
+  def annual_breakdown
+    rented_units = rented_units()
+    annual_breakdown = {}
+    rented_units.each do |unit|
+      annual_breakdown[unit.renter.name] = (unit.monthly_rent * 12)
+    end
+    annual_breakdown
+  end
 end 
