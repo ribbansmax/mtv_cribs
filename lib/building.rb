@@ -45,4 +45,23 @@ class Building
     end
     highest_unit.renter
   end
+
+  def units_by_number_of_bedrooms
+    units = {}
+    num_bedrooms = []
+    @units.each do |unit|
+      num_bedrooms << unit.bedrooms
+    end
+    num_bedrooms.uniq!
+    num_bedrooms.each do |bedrooms|
+      numbers_array = []
+      @units.each do |unit|
+        if unit.bedrooms == bedrooms
+          numbers_array << unit.number
+        end
+      end
+      units[bedrooms] = numbers_array
+    end
+    units
+  end
 end 
